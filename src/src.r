@@ -21,7 +21,7 @@ extract_totalCoverage <- function(sampleName){
     coverage = data.frame(CHROM = ref$CHROM,
                           POS = ref$POS,
 #                          REF = ref[,3],
-#                          ALT = alt[,3],
+                          ALT = alt[,3],
                           total = total)
     close(zref)
     close(zalt)

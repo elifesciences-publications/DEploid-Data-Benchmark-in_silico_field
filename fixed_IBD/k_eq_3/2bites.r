@@ -67,7 +67,7 @@ write.table(new.true,
 ####################################################################
 # Get exclude sites at
 ####################################################################
-exclude.idx = which(rowSums(fullPanelFile[,2+which(fullSampleNames %in% useSamples)]) == 0)
+exclude.idx = which(rowSums(cbind(fullPanelFile[,2+which(fullSampleNames %in% useSamples)], totalCoverage$ALT)) == 0)
 write.table(fullPanelFile[exclude.idx, c(1,2)],
     file = paste("exclude/", trueHap_prefix, ".exclude", sep=""), row.names = F, quote=F, sep="\t")
 
