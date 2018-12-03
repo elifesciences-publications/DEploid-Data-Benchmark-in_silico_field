@@ -5,7 +5,7 @@ source("../../src/src.r")
 #library(DEploid)
 args = (commandArgs(TRUE))
 
-# ./3bites.r asiaGroup1 k_eq_3 3bites 1
+# ./2bites.r asiaGroup1 k_eq_3 2bites 1
 
 population = args[1]
 k_case = args[2]
@@ -25,7 +25,7 @@ err<-0.01;
 
 fullSampleNames = names(fullPanelFile)[-c(1,2)]
 
-useSamples = sample(fullSampleNames, 20+3, replace = F)
+useSamples = sample(fullSampleNames, 20+2, replace = F)
 print(useSamples)
 # Use 1-20 samples for panel, 21, 22, 23 for coverage
 
@@ -33,7 +33,7 @@ print(useSamples)
 ####################################################################
 # Get panel
 ####################################################################
-newPanel.col.idx = c(1, 2, 2+which(fullSampleNames %in% useSamples[-c(21:23)]))
+newPanel.col.idx = c(1, 2, 2+which(fullSampleNames %in% useSamples[-c(21:22)]))
 write.table(fullPanelFile[,newPanel.col.idx ], file = paste("panels20/", panel_prefix, ".panel", sep = ""), row.names = F, quote=F, sep="\t")
 
 ####################################################################
@@ -45,11 +45,17 @@ head(totalCoverage)
 red_hap = fullPanelFile[[useSamples[21]]]
 head(red_hap)
 blue_hap = fullPanelFile[[useSamples[22]]]
-green_hap = fullPanelFile[[useSamples[23]]]
+
+n.loci = length(red_hap)
+breaks.at = 0.5*n.loci
 
 new.hap1 = red_hap
 new.hap2 = blue_hap
-new.hap3 = green_hap
+new.hap3 = red_hap
+
+new.hap2[1:breaks.at] = red_hap[1:breaks.at]
+new.hap1[1:breaks.at] = blue_hap[1:breaks.at]
+
 
 new.true = data.frame(CHROM = totalCoverage$CHROM,
                       POS = totalCoverage$POS,
@@ -69,7 +75,6 @@ write.table(fullPanelFile[exclude.idx, c(1,2)],
 ####################################################################
 # Get coverage with different proportions
 ####################################################################
-n.loci = length(red_hap)
 p1_ary = c(10, 10, 10, 10, 10, 10, 15, 15, 15, 15, 20, 20, 20, 25, 30)
 p2_ary = c(10, 15, 20, 25, 30, 40, 15, 20, 25, 30, 20, 25, 30, 25, 30)
 #          80, 75, 70, 65, 60, 50, 70, 65, 60, 55, 60, 55, 50, 50, 40
