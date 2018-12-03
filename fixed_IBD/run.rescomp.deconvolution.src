@@ -34,7 +34,7 @@ echo "
 #$ -e ErrFiles
 #$ -o OutFiles
 #$ -N ${popgroup}.${k_case}.${scenario}.${vv}
-#$ -t 1-6
+#$ -t 1-100
 
 
 plaf=../../../../field_haps/${popgroup}_PLAF_14.txt
