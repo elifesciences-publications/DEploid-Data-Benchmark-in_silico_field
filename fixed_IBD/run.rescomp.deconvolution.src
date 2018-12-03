@@ -48,16 +48,16 @@ for seed in \$(seq 1 15 ); do
 ref=../../alleleCount/${popgroup}.${k_case}.${scenario}.\${SGE_TASK_ID}p${vv}.ref
 alt=../../alleleCount/${popgroup}.${k_case}.${scenario}.\${SGE_TASK_ID}p${vv}.alt
 
-prefix=${popgroup}.${k_case}.${scenario}.${vv}.seed\${seed}.ibd
+prefix=${popgroup}.${k_case}.${scenario}.${vv}.experiment\${SGE_TASK_ID}.seed\${seed}.ibd
 common=\"-ref \${ref} -alt \${alt} -plaf \${plaf} -exclude \${excludeAt} -o \${prefix}\"
-dEploidCommon=\"\${common} -seed \${SGE_TASK_ID} -nSample 500 -rate 8 -burn 0.67 -k 4\"
+dEploidCommon=\"\${common} -seed \${seed} -nSample 500 -rate 8 -burn 0.67 -k 4\"
 rCommon=\"\${common} -dEprefix \${prefix}\"
 dEploid \${dEploidCommon} -panel \${panel} -ibd
 interpretDEploid.r \${rCommon}
 
-prefix=${popgroup}.${k_case}.${scenario}.${vv}.seed\${seed}
+prefix=${popgroup}.${k_case}.${scenario}.${vv}.experiment\${SGE_TASK_ID}.seed\${seed}
 common=\"-ref \${ref} -alt \${alt} -plaf \${plaf} -exclude \${excludeAt} -o \${prefix}\"
-dEploidCommon=\"\${common} -seed \${SGE_TASK_ID} -nSample 500 -rate 8 -burn 0.67 -k 4\"
+dEploidCommon=\"\${common} -seed \${seed} -nSample 500 -rate 8 -burn 0.67 -k 4\"
 rCommon=\"\${common} -dEprefix \${prefix}\"
 dEploid \${dEploidCommon} -panel \${panel}
 interpretDEploid.r \${rCommon}
