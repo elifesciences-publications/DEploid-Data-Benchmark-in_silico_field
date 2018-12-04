@@ -90,7 +90,7 @@ for ( pidx in 1:length(p1_ary) ){
     refCount1 = totalCoverage$total - altCount1
 
     write.table(data.frame(CHROM = totalCoverage$CHROM, POS = totalCoverage$POS, REF = refCount1),
-        file = paste("alleleCount/",trueHap_prefix, "p", p1,"v", p2, "v", p3, ".ref", sep = ""), row.names = F, quote=F, col.names=T, sep="\t")
+        file = paste("alleleCount/",trueHap_prefix, "p", p1,"v", p2, "v", p3, "v", p4, ".ref", sep = ""), row.names = F, quote=F, col.names=T, sep="\t")
     write.table(data.frame(CHROM = totalCoverage$CHROM, POS = totalCoverage$POS, ALT = altCount1),
-        file = paste("alleleCount/",trueHap_prefix, "p", p1,"v", p2, "v", p3, ".alt", sep = ""), row.names = F, quote=F, col.names=T, sep="\t")
+        file = paste("alleleCount/",trueHap_prefix, "p", p1,"v", p2, "v", p3, "v", p4, ".alt", sep = ""), row.names = F, quote=F, col.names=T, sep="\t")
 }
