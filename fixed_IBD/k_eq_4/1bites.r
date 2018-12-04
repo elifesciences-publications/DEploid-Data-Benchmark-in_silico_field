@@ -47,8 +47,9 @@ head(red_hap)
 blue_hap = fullPanelFile[[useSamples[22]]]
 
 n.loci = length(red_hap)
-breaks.at.1 = 0.33*n.loci
-breaks.at.2 = 0.67*n.loci
+breaks.at.1 = 0.25*n.loci
+breaks.at.2 = 0.5*n.loci
+breaks.at.3 = 0.75*n.loci
 
 new.hap1 = red_hap
 new.hap2 = blue_hap
@@ -59,7 +60,7 @@ new.hap2[1:breaks.at.1] = red_hap[1:breaks.at.1]
 new.hap1[1:breaks.at.1] = blue_hap[1:breaks.at.1]
 
 new.hap4[1:breaks.at.2] = red_hap[1:breaks.at.2]
-new.hap3[1:breaks.at.2] = blue_hap[1:breaks.at.2]
+new.hap3[1:breaks.at.3] = blue_hap[1:breaks.at.3]
 
 
 new.true = data.frame(CHROM = totalCoverage$CHROM,
