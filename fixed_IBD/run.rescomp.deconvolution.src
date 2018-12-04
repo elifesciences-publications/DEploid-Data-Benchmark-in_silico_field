@@ -30,7 +30,7 @@ echo "
 #!/bin/bash
 #$ -cwd
 #$ -V
-##$ -P mcvean.prjc -q short.qc
+#$ -P mcvean.prjc -q short.qc
 #$ -e ErrFiles
 #$ -o OutFiles
 #$ -N ${popgroup}.${k_case}.${scenario}.${vv}
