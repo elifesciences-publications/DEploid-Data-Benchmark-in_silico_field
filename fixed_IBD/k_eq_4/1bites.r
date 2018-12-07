@@ -52,11 +52,11 @@ breaks.at.2 = 0.5*n.loci
 breaks.at.3 = 0.75*n.loci
 
 new.hap1 = red_hap
-new.hap2 = blue_hap
+new.hap2 = red_hap
 new.hap3 = red_hap
 new.hap4 = blue_hap
 
-new.hap2[1:breaks.at.1] = red_hap[1:breaks.at.1]
+new.hap2[breaks.at.1:breaks.at.3] = blue_hap[breaks.at.1:breaks.at.3]
 new.hap1[1:breaks.at.1] = blue_hap[1:breaks.at.1]
 
 new.hap4[1:breaks.at.2] = red_hap[1:breaks.at.2]
@@ -83,10 +83,10 @@ write.table(fullPanelFile[exclude.idx, c(1,2)],
 # Get coverage with different proportions
 ####################################################################
 n.loci = length(red_hap)
-p1_ary = c(10, 25, 20, 30)
-p2_ary = c(20, 25, 20, 30)
+p1_ary = c(11, 25, 20, 30)
+p2_ary = c(22, 25, 20, 30)
 p3_ary = c(30, 25, 20, 30)
-#          40, 25, 40, 10
+#          37, 25, 40, 10
 
 for ( pidx in 1:length(p1_ary) ){
     p1 = p1_ary[pidx]

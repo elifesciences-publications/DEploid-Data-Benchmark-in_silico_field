@@ -73,10 +73,10 @@ write.table(fullPanelFile[exclude.idx, c(1,2)],
 # Get coverage with different proportions
 ####################################################################
 n.loci = length(red_hap)
-p1_ary = c(10, 25, 20, 30)
-p2_ary = c(20, 25, 20, 30)
+p1_ary = c(11, 25, 20, 30)
+p2_ary = c(22, 25, 20, 30)
 p3_ary = c(30, 25, 20, 30)
-#          40, 25, 40, 10
+#          37, 25, 40, 10
 
 for ( pidx in 1:length(p1_ary) ){
     p1 = p1_ary[pidx]
