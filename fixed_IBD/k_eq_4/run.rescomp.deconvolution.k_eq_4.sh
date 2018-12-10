@@ -1,5 +1,5 @@
 #!/bin/bash
-source ../run.rescomp.deconvolution.src
+source ../../src/run.rescomp.deconvolution.src
 
 pvv=( "11v22v30v37" "20v20v20v40" "30v30v30v10" "25v25v25v25" )
 
