@@ -45,4 +45,4 @@
        |## Currently empty,
 ```
 
-<img src="field_haps/image1.jpeg" width="880", rotate="90">
+<img src="field_haps/image1.jpeg" width="880">
