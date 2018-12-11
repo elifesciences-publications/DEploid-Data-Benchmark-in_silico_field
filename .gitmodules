@@ -1,0 +1,3 @@
+[submodule "src/DEploid-Utilities"]
+	path = src/DEploid-Utilities
+	url = https://github.com/DEploid-dev/DEploid-Utilities
