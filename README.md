@@ -2,6 +2,8 @@
 
 ### Description
 
+*In silico* sequence data from field sample simulations.
+
 #### Repository structure
 
 ```
@@ -16,7 +18,9 @@
 |-- fixed_IBD/
 |      |## Directories for different scenarios
 |      |-- k_eq_2/
-|      |      |## Currently empty,
+|      |      |## See README.md for details
+|      |      |-- ...
+|      |      |-- README.md
 |      |
 |      |-- k_eq_3/
 |      |      |## See README.md for details
@@ -46,3 +50,11 @@
 ```
 
 <img src="field_haps/image1.jpeg" width="880">
+
+
+Citation
+--------
+
+If you use this validation dataset, please cite the following paper:
+
+Zhu, J. S., J. A. Hendry, J. Almagro-Garcia, R. D. Pearson, R. Amato, A. Miles, D. J. Weiss, T. C. D. Lucas, M. Nguyen, P. W. Gething, D. Kwiatkowski, G. McVean, and for the Pf3k Project. (2018) The origins and relatedness structure of mixed infections vary with local prevalence of *P. falciparum* malaria. *biorxiv*, doi: https://doi.org/10.1101/387266.
