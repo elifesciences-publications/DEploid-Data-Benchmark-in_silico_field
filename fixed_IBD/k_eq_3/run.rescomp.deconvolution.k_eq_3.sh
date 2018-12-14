@@ -14,10 +14,10 @@ pvv=( "10v10v80" "10v25v65"  "10v40v50" \
 
 for vv in "${pvv[@]}"; do
 #echo $vv;
-    run_dEploid asiaGroup1 k_eq_3 3bites ${vv}
-    run_dEploid asiaGroup1 k_eq_3 2bites ${vv}
+#    run_dEploid asiaGroup1 k_eq_3 3bites ${vv}
+#    run_dEploid asiaGroup1 k_eq_3 2bites ${vv}
     run_dEploid asiaGroup1 k_eq_3 1bites ${vv}
-    run_dEploid africaGroup2 k_eq_3 3bites ${vv}
-    run_dEploid africaGroup2 k_eq_3 2bites ${vv}
+#    run_dEploid africaGroup2 k_eq_3 3bites ${vv}
+#    run_dEploid africaGroup2 k_eq_3 2bites ${vv}
     run_dEploid africaGroup2 k_eq_3 1bites ${vv}
 done
