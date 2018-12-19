@@ -4,7 +4,7 @@
 # 1 bite low relatedness
 <img src="./k_eq_2.1bites_lowaltVsRefAndWSAFvsPLAF.png" width="880">
 
-# 1 bite
+# 1 bite moderate relatedness
 <img src="./k_eq_2.1bitesaltVsRefAndWSAFvsPLAF.png" width="880">
 
 # 1 bite high relatedness
