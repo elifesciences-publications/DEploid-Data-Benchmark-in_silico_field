@@ -35,6 +35,7 @@ print(useSamples)
 ####################################################################
 newPanel.col.idx = c(1, 2, 2+which(fullSampleNames %in% useSamples[-c(21:24)]))
 write.table(fullPanelFile[,newPanel.col.idx ], file = paste("panels20/", panel_prefix, ".panel", sep = ""), row.names = F, quote=F, sep="\t")
+system(paste("gzip panels20/", panel_prefix, ".panel", sep = ""))
 
 ####################################################################
 # Get True haplotypes
@@ -61,6 +62,7 @@ new.true = data.frame(CHROM = totalCoverage$CHROM,
                       BLACK = new.hap4)
 write.table(new.true,
     file = paste("trueHap/", trueHap_prefix, ".truth", sep=""), row.names = F, quote=F, sep="\t")
+system(paste("gzip trueHap/", trueHap_prefix, ".truth", sep=""))
 
 ####################################################################
 # Get exclude sites at
@@ -68,6 +70,7 @@ write.table(new.true,
 exclude.idx = which(rowSums(cbind(fullPanelFile[,2+which(fullSampleNames %in% useSamples)], totalCoverage$ALT)) == 0)
 write.table(fullPanelFile[exclude.idx, c(1,2)],
     file = paste("exclude/", trueHap_prefix, ".exclude", sep=""), row.names = F, quote=F, sep="\t")
+system(paste("gzip exclude/", trueHap_prefix, ".exclude", sep=""))
 
 ####################################################################
 # Get coverage with different proportions
