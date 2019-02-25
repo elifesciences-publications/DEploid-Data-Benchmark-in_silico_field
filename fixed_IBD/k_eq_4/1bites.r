@@ -38,6 +38,15 @@ write.table(fullPanelFile[,newPanel.col.idx ], file = paste("panels20/", panel_p
 system(paste("gzip panels20/", panel_prefix, ".panel", sep = ""))
 
 ####################################################################
+# Get full panel minus parent
+####################################################################
+z <- gzfile(paste("panelsAlmostfull/", panel_prefix, ".panel.gz", sep = ""), "w")
+almostfull.Panel.col.idx = c(1, 2, 2+which(!fullSampleNames %in% useSamples[c(21:22)]))
+write.table(fullPanelFile[,almostfull.Panel.col.idx], z, row.names = F, quote=F, sep="\t")
+#cat("\n", file = z, append = TRUE)
+close(z)
+
+####################################################################
 # Get True haplotypes
 ####################################################################
 totalCoverage = extract_totalCoverage(useSamples[21])

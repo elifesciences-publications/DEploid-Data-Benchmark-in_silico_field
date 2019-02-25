@@ -38,6 +38,15 @@ write.table(fullPanelFile[,newPanel.col.idx ], file = paste("panels20/", panel_p
 system(paste("gzip panels20/", panel_prefix, ".panel", sep = ""))
 
 ####################################################################
+# Get full panel minus parent
+####################################################################
+z <- gzfile(paste("panelsAlmostfull/", panel_prefix, ".panel.gz", sep = ""), "w")
+almostfull.Panel.col.idx = c(1, 2, 2+which(!fullSampleNames %in% useSamples[c(21:24)]))
+write.table(fullPanelFile[,almostfull.Panel.col.idx], z, row.names = F, quote=F, sep="\t")
+#cat("\n", file = z, append = TRUE)
+close(z)
+
+####################################################################
 # Get True haplotypes
 ####################################################################
 totalCoverage = extract_totalCoverage(useSamples[21])
@@ -94,6 +103,8 @@ for ( pidx in 1:length(p1_ary) ){
 
     write.table(data.frame(CHROM = totalCoverage$CHROM, POS = totalCoverage$POS, REF = refCount1),
         file = paste("alleleCount/",trueHap_prefix, "p", p1,"v", p2, "v", p3, "v", p4, ".ref", sep = ""), row.names = F, quote=F, col.names=T, sep="\t")
+    system(paste("gzip alleleCount/",trueHap_prefix, "p", p1,"v", p2, "v", p3, "v", p4, ".ref", sep = ""))
     write.table(data.frame(CHROM = totalCoverage$CHROM, POS = totalCoverage$POS, ALT = altCount1),
         file = paste("alleleCount/",trueHap_prefix, "p", p1,"v", p2, "v", p3, "v", p4, ".alt", sep = ""), row.names = F, quote=F, col.names=T, sep="\t")
+    system(paste("gzip alleleCount/",trueHap_prefix, "p", p1,"v", p2, "v", p3, "v", p4, ".alt", sep = ""))
 }
