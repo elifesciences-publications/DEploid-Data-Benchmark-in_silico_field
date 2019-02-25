@@ -5,6 +5,7 @@
 #$ -o OutFiles
 #$ -N datasim
 #$ -t 1-2
+#$ -tc 6
 
 ./3bites.r asiaGroup1 k_eq_3 3bites ${SGE_TASK_ID}
 ./2bites.r asiaGroup1 k_eq_3 2bites ${SGE_TASK_ID}
